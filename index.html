@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ffffff',
+                        secondary: '#cccccc',
+                        dark: '#121212',
+                        'dark-gray': '#1e1e1e',
+                        'medium-gray': '#2d2d2d',
+                        'light-gray': '#3d3d3d',
+                    },
+                    fontFamily: {
+                        sans: ['Fira Code', 'Consolas', 'Monaco', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .terminal-cursor {
+                animation: blink 1s step-end infinite;
+            }
+            @keyframes blink {
+                from, to { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            .terminal-text {
+                white-space: pre-line;
+            }
+            .terminal-line {
+                display: flex;
+                align-items: center;
+            }
+            .prompt {
+                color: #ffffff;
+            }
+            .command {
+                color: #cccccc;
+            }
+            .output {
+                color: #aaaaaa;
+            }
+            .link {
+                color: #61afef;
+                text-decoration: none;
+            }
+            .link:hover {
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark font-sans text-primary min-h-screen p-4 md:p-8">
+    <header class="max-w-4xl mx-auto mb-8">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">~ $ <span class="text-secondary">echo "Welcome to My Profile"</span></h1>
+        <div class="h-px bg-light-gray w-full"></div>
+    </header>
+    
+    <main class="max-w-4xl mx-auto" id="terminal">
+            <section class="mb-12">
+                <div class="terminal-line mb-4">
+                    <span class="prompt">JaxMu@profile:~$ </span>
+                    <span class="command">whoami</span>
+                </div>
+                <div class="terminal-line output mb-6">
+                    <span class="text-xl">user</span>
+                </div>
+                
+                <div class="terminal-line mb-4">
+                    <span class="prompt">JaxMu@profile:~$ </span>
+                    <span class="command">cat ~/profile.txt</span>
+                </div>
+                <div class="terminal-line output terminal-text bg-dark-gray p-6 rounded-lg border-l-4 border-secondary">
+                    <span>
+姓名: JaxMu
+职业: 开发者
+简介: 热爱技术，擅长编程，对开源项目充满热情。
+                    </span>
+                </div>
+            </section>
+            
+            <section class="mb-12">
+                <div class="terminal-line mb-4">
+                    <span class="prompt">JaxMu@profile:~$ </span>
+                    <span class="command">ls -la ~/contacts/</span>
+                </div>
+                <div class="bg-dark-gray p-6 rounded-lg mb-6 overflow-x-auto">
+                    <div class="terminal-line output">
+                        <span>total 16</span>
+                    </div>
+                    <div class="terminal-line output">
+                        <span>drwxr-xr-x  2 JaxMu JaxMu 4096 Jul 22 10:00 .</span>
+                    </div>
+                    <div class="terminal-line output">
+                        <span>drwxr-xr-x 10 JaxMu JaxMu 4096 Jul 22 09:50 ..</span>
+                    </div>
+                    <div class="terminal-line output">
+                        <span>-rw-r--r--  1 JaxMu JaxMu   32 Jul 22 10:00 email.txt</span>
+                    </div>
+                    <div class="terminal-line output">
+                        <span>-rw-r--r--  1 JaxMu JaxMu   45 Jul 22 10:00 github.txt</span>
+                    </div>
+                    <div class="terminal-line output">
+                        <span>-rw-r--r--  1 JaxMu JaxMu   48 Jul 22 10:00 linkedin.txt</span>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-dark-gray p-6 rounded-lg border-t-4 border-light-gray">
+                        <div class="mb-3 flex flex-col">
+                            <span class="prompt">JaxMu@profile:~$ </span>
+                            <span class="command ml-4">cat ~/contacts/email.txt</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span><a href="mailto:JaxMu@example.com" class="link text-lg">JaxMu@example.com</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-gray p-6 rounded-lg border-t-4 border-light-gray">
+                        <div class="mb-3 flex flex-col">
+                            <span class="prompt">JaxMu@profile:~$ </span>
+                            <span class="command ml-4">cat ~/contacts/github.txt</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span><a href="https://github.com/JaxMu" target="_blank" class="link text-lg">github.com/JaxMu</a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-dark-gray p-6 rounded-lg border-t-4 border-light-gray">
+                        <div class="mb-3 flex flex-col">
+                            <span class="prompt">JaxMu@profile:~$ </span>
+                            <span class="command ml-4">cat ~/contacts/linkedin.txt</span>
+                        </div>
+                        <div class="terminal-line output">
+                            <span><a href="https://linkedin.com/in/JaxMu" target="_blank" class="link text-lg">linkedin.com/in/JaxMu</a></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+            
+            <footer class="text-center text-secondary text-sm mt-16 mb-8">
+                <div class="terminal-line mb-2">
+                    <span class="prompt">JaxMu@profile:~$ </span>
+                    <span class="command terminal-cursor">_</span>
+                </div>
+                <p>© 2025 JaxMu Profile. All rights reserved.</p>
+            </footer>
+        </main>
+</body>
+</html>
